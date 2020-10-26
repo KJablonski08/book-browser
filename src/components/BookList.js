@@ -5,7 +5,7 @@ const BookList = () => {
 	const [books, setBooks] = useState(null);
 	useEffect(() => {
 		fetch(
-			`https://www.googleapis.com/books/v1/volumes?q=intitle:harry+potter+and+the+sorcerers+stone&key=${process.env.REACT_APP_KEY}`
+			`https://www.googleapis.com/books/v1/volumes?q=intitle:the+stand&inauthor:king&key=${process.env.REACT_APP_KEY}`
 		)
 			.then((res) => res.json())
 			.then((res) => {
@@ -24,7 +24,10 @@ const BookList = () => {
 					if (book.volumeInfo.imageLinks) {
 						return (
 							<Card key={book.id}>
-								<Card.Img src={book.volumeInfo.imageLinks.thumbnail} />
+								<Card.Img
+									className='book-image'
+									src={book.volumeInfo.imageLinks.thumbnail}
+								/>
 								<Card.Title>{book.volumeInfo.title}</Card.Title>
 							</Card>
 						);

@@ -14,12 +14,23 @@ if they are direct children of the #root element.
 	padding: 1rem;
 }
 
-.search {
+.margin {
 	margin: 0em 8em;
+}
+
+.search {
+	padding: 20px;
+	display: grid;
+	justify-content: center;
 }
 
 .book-list {
 	margin: 0em 8em;
+}
+
+.book-image {
+	max-height: 20rem;
+	max-width: 15rem;
 }
 
 @import '~bootstrap/scss/bootstrap';

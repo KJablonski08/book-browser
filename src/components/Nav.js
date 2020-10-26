@@ -5,8 +5,8 @@ const nav = () => {
 	return (
 		<div>
 			<Navbar bg='dark' variant='dark'>
-				<Navbar.Brand href='#home' className='search'>
-					Navbar
+				<Navbar.Brand href='#home' className='margin'>
+					Book Browser
 				</Navbar.Brand>
 				<Nav className='mr-auto'>
 					{/* <Nav.Link href='#home'>Home</Nav.Link>
