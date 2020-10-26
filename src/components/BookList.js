@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Card, CardColumns } from 'react-bootstrap';
 
 const BookList = () => {
 	const [books, setBooks] = useState(null);
@@ -12,16 +13,30 @@ const BookList = () => {
 			})
 			.catch(console.error);
 	}, []);
+	console.log(books);
 	if (books === null) {
 		return null;
 	}
 	return (
-		<div>
-			<ul>
+		<div className='book-list'>
+			<CardColumns>
 				{books.map((book) => {
-					return <li>{book.volumeInfo.title}</li>;
+					if (book.volumeInfo.imageLinks) {
+						return (
+							<Card key={book.id}>
+								<Card.Img src={book.volumeInfo.imageLinks.thumbnail} />
+								<Card.Title>{book.volumeInfo.title}</Card.Title>
+							</Card>
+						);
+					} else {
+						return (
+							<Card key={book.id}>
+								<Card.Title>{book.volumeInfo.title}</Card.Title>
+							</Card>
+						);
+					}
 				})}
-			</ul>
+			</CardColumns>
 		</div>
 	);
 };
