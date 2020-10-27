@@ -1,12 +1,39 @@
-import React from 'react';
-import { Form, FormControl, Button } from 'react-bootstrap';
+import React, { useState } from 'react';
+import {
+	Form,
+	FormControl,
+	ToggleButtonGroup,
+	ToggleButton,
+	InputGroup,
+} from 'react-bootstrap';
 
 const SearchForm = () => {
+	const [value, setValue] = useState([1, 3]);
+	const handleChange = (val) => setValue(val);
 	return (
 		<div className='search'>
 			<Form inline>
-				<FormControl type='text' placeholder='Search' className='mr-sm-2' />
-				<Button variant='outline-info'>Search</Button>
+				<InputGroup>
+					<FormControl
+						placeholder='Search By'
+						aria-label='Search By'
+						aria-describedby='basic-addon2'
+					/>
+					<ToggleButtonGroup
+						type='checkbox'
+						value={value}
+						onChange={handleChange}>
+						<ToggleButton variant='outline-secondary' value={1}>
+							Title
+						</ToggleButton>
+						<ToggleButton variant='outline-secondary' value={2}>
+							Author
+						</ToggleButton>
+						<ToggleButton variant='outline-secondary' value={3}>
+							ISBN
+						</ToggleButton>
+					</ToggleButtonGroup>
+				</InputGroup>
 			</Form>
 		</div>
 	);
