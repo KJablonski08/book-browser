@@ -6,9 +6,11 @@ const nav = () => {
 	return (
 		<div>
 			<Navbar bg='dark' variant='dark'>
-				<Navbar.Brand href='#home' className='margin'>
-					<Link to='/'>Book Browser</Link>
-				</Navbar.Brand>
+				<Link to='/'>
+					<Navbar.Brand href='#home' className='margin'>
+						Book Browser
+					</Navbar.Brand>
+				</Link>
 				<Nav className='mr-auto'>
 					{/* <Nav.Link href='#home'>Home</Nav.Link>
 					<Nav.Link href='#features'>Features</Nav.Link>

@@ -22,7 +22,7 @@ const BookList = () => {
 				{books.map((book) => {
 					if (book.volumeInfo.imageLinks) {
 						return (
-							<Card key={book.id} className='book-box'>
+							<Card key={book.id} className='book-box card-cascade-narrower'>
 								<Card.Img
 									className='book-image'
 									src={book.volumeInfo.imageLinks.thumbnail}
