@@ -29,15 +29,26 @@ if they are direct children of the #root element.
 }
 
 .book-image {
-	max-height: 20rem;
-	max-width: 15rem;
+	max-height: 15rem;
+	max-width: 10rem;
 }
 
-.card {
+.book-box {
+	background-color: #59595920;
+	border-radius: 20%;
+	margin: 20px;
 }
 
-.book-box:hover {
+.book-image:hover {
 	box-shadow: 3px 3px 5px 6px #ccc;
 }
+
+.card-cascade-narrower {
+	img {
+		transform: scale(0.92) translateY(-2rem) translateX(-1em);
+		margin-bottom: -1rem;
+	}
+}
+// SOURCE for card-cascase-narrow https://codepen.io/Devcrud/pen/YzXdBLK
 
 @import '~bootstrap/scss/bootstrap';

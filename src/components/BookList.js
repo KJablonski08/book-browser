@@ -13,6 +13,7 @@ const BookList = () => {
 			})
 			.catch(console.error);
 	}, []);
+	console.log(books);
 	if (books === null) {
 		return null;
 	}
@@ -22,12 +23,19 @@ const BookList = () => {
 				{books.map((book) => {
 					if (book.volumeInfo.imageLinks) {
 						return (
-							<Card key={book.id} className='book-box'>
+							<Card key={book.id} className='book-box card-cascade-narrower'>
 								<Card.Img
 									className='book-image'
 									src={book.volumeInfo.imageLinks.thumbnail}
 								/>
 								<Card.Title>{book.volumeInfo.title}</Card.Title>
+								{book.volumeInfo.authors.map((author) => {
+									return (
+										<Card.Subtitle className='mb-2 text-muted'>
+											{author}
+										</Card.Subtitle>
+									);
+								})}
 							</Card>
 						);
 					} else {

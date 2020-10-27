@@ -1,5 +1,5 @@
 import React from 'react';
-import { Jumbotron, Container } from 'react-bootstrap';
+import { Jumbotron, Container, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
@@ -9,7 +9,7 @@ const Home = () => {
 				<Container>
 					<h1>Book Browser</h1>
 					<Link to='/books'>
-						<button>Books</button>
+						<Button variant='dark'>Books</Button>
 					</Link>
 				</Container>
 			</Jumbotron>
