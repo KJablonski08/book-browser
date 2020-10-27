@@ -33,4 +33,11 @@ if they are direct children of the #root element.
 	max-width: 15rem;
 }
 
+.card {
+}
+
+.book-box:hover {
+	box-shadow: 3px 3px 5px 6px #ccc;
+}
+
 @import '~bootstrap/scss/bootstrap';

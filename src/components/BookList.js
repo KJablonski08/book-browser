@@ -13,7 +13,6 @@ const BookList = () => {
 			})
 			.catch(console.error);
 	}, []);
-	console.log(books);
 	if (books === null) {
 		return null;
 	}
@@ -23,7 +22,7 @@ const BookList = () => {
 				{books.map((book) => {
 					if (book.volumeInfo.imageLinks) {
 						return (
-							<Card key={book.id}>
+							<Card key={book.id} className='book-box'>
 								<Card.Img
 									className='book-image'
 									src={book.volumeInfo.imageLinks.thumbnail}
@@ -33,7 +32,7 @@ const BookList = () => {
 						);
 					} else {
 						return (
-							<Card key={book.id}>
+							<Card key={book.id} className='book-box'>
 								<Card.Title>{book.volumeInfo.title}</Card.Title>
 							</Card>
 						);
