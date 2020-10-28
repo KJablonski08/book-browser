@@ -34,6 +34,14 @@ const BookDetail = ({ match }) => {
 				<Card.Subtitle variant='secondary' size='sm'>
 					{book.volumeInfo.categories[0]}
 				</Card.Subtitle>
+				<hr />
+				<a href={book.volumeInfo.previewLink}>
+					<Button>Preview</Button>
+				</a>
+				<a href={book.saleInfo.buyLink}>
+					<Button>Purchase Now</Button>
+				</a>
+				{/* https://stackoverflow.com/questions/42914666/react-router-external-link */}
 			</Card>
 			<Link to={'/books'}>
 				<Button>BookList</Button>

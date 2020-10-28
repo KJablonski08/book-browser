@@ -18,7 +18,6 @@ const App = () => {
 			})
 			.catch(console.error);
 	}, []);
-	console.log(books);
 	return (
 		<div>
 			<header>
