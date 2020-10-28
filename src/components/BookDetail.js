@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const BookDetail = ({ match }) => {
 	const [book, setBook] = useState(null);
+	const [error, setError] = useState();
 	useEffect(() => {
 		fetch(
 			`https://www.googleapis.com/books/v1/volumes?q=isbn:${match.params.book}&key=${process.env.REACT_APP_KEY}`
@@ -14,9 +15,15 @@ const BookDetail = ({ match }) => {
 			})
 			.catch(console.error);
 	}, []);
-	console.log(book);
 	if (book === null) {
-		return null;
+		return (
+			<div>
+				<h5>I'm Sorry - there was an error. Please try another book</h5>
+				<Link to={'/books'}>
+					<Button>BookList</Button>
+				</Link>
+			</div>
+		);
 	}
 	return (
 		<div>
@@ -28,7 +35,9 @@ const BookDetail = ({ match }) => {
 				<Card.Title>{book.volumeInfo.title}</Card.Title>
 				{book.volumeInfo.authors.map((author, i) => {
 					return (
-						<Card.Subtitle className='mb-2 text-muted'>{author}</Card.Subtitle>
+						<Card.Subtitle key={i} className='mb-2 text-muted'>
+							{author}
+						</Card.Subtitle>
 					);
 				})}
 				<Card.Subtitle variant='secondary' size='sm'>
