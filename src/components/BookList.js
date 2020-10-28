@@ -1,46 +1,45 @@
-import React, { useState, useEffect } from 'react';
-import { Card, CardColumns } from 'react-bootstrap';
+import React from 'react';
+import { Card, CardColumns, Button } from 'react-bootstrap';
+import BookDetail from './BookDetail';
 
-const BookList = () => {
-	const [books, setBooks] = useState(null);
-	useEffect(() => {
-		fetch(
-			`https://www.googleapis.com/books/v1/volumes?q=intitle:the+stand&inauthor:king&key=${process.env.REACT_APP_KEY}`
-		)
-			.then((res) => res.json())
-			.then((res) => {
-				setBooks(res.items);
-			})
-			.catch(console.error);
-	}, []);
-	console.log(books);
+const BookList = ({ books }) => {
 	if (books === null) {
-		return null;
+		return <div>Book List not Found</div>;
 	}
 	return (
 		<div className='book-list'>
 			<CardColumns>
-				{books.map((book) => {
+				{books.map((book, i) => {
 					if (book.volumeInfo.imageLinks) {
 						return (
-							<Card key={book.id} className='book-box card-cascade-narrower'>
+							<Card key={i} className='book-box card-cascade-narrower'>
 								<Card.Img
 									className='book-image'
 									src={book.volumeInfo.imageLinks.thumbnail}
 								/>
 								<Card.Title>{book.volumeInfo.title}</Card.Title>
-								{book.volumeInfo.authors.map((author) => {
+								{book.volumeInfo.authors.map((author, i) => {
 									return (
-										<Card.Subtitle className='mb-2 text-muted'>
+										<Card.Subtitle key={i} className='mb-2 text-muted'>
 											{author}
 										</Card.Subtitle>
 									);
 								})}
+								<Card.Subtitle variant='secondary' size='sm'>
+									{book.volumeInfo.categories[0]}
+								</Card.Subtitle>
+								<Button
+									variant='outline-dark'
+									onClick={() => {
+										<BookDetail book={book} />;
+									}}>
+									Details
+								</Button>
 							</Card>
 						);
 					} else {
 						return (
-							<Card key={book.id} className='book-box'>
+							<Card key={i} className='book-box'>
 								<Card.Title>{book.volumeInfo.title}</Card.Title>
 							</Card>
 						);

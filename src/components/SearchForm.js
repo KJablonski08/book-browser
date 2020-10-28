@@ -9,7 +9,7 @@ import {
 
 const SearchForm = () => {
 	const [value, setValue] = useState([1, 3]);
-	const handleChange = (val) => setValue(val);
+	const handleToggleChange = (val) => setValue(val);
 	return (
 		<div className='search'>
 			<Form inline>
@@ -22,7 +22,7 @@ const SearchForm = () => {
 					<ToggleButtonGroup
 						type='checkbox'
 						value={value}
-						onChange={handleChange}>
+						onChange={handleToggleChange}>
 						<ToggleButton variant='outline-secondary' value={1}>
 							Title
 						</ToggleButton>

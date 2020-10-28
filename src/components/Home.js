@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Home = () => {
 	return (
 		<div>
-			<Jumbotron fluid>
+			<Jumbotron fluid className='margin'>
 				<Container>
 					<h1>Book Browser</h1>
 					<Link to='/books'>
