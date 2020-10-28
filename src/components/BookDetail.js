@@ -35,10 +35,15 @@ const BookDetail = ({ match }) => {
 					{book.volumeInfo.categories[0]}
 				</Card.Subtitle>
 				<hr />
+				<Card.Text>{book.volumeInfo.description}</Card.Text>
+				<Card.Subtitle variant='secondary' size='sm'>
+					Page Count: {book.volumeInfo.pageCount}
+				</Card.Subtitle>
+				<hr />
 				<a href={book.volumeInfo.previewLink}>
 					<Button>Preview</Button>
 				</a>
-				<a href={book.saleInfo.buyLink}>
+				<a href={book.volumeInfo.infoLink}>
 					<Button>Purchase Now</Button>
 				</a>
 				{/* https://stackoverflow.com/questions/42914666/react-router-external-link */}
