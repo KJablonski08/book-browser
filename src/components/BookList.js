@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardColumns, Button } from 'react-bootstrap';
-import BookDetail from './BookDetail';
+import { Link } from 'react-router-dom';
 
 const BookList = ({ books }) => {
 	if (books === null) {
@@ -28,13 +28,10 @@ const BookList = ({ books }) => {
 								<Card.Subtitle variant='secondary' size='sm'>
 									{book.volumeInfo.categories[0]}
 								</Card.Subtitle>
-								<Button
-									variant='outline-dark'
-									onClick={() => {
-										<BookDetail book={book} />;
-									}}>
-									Details
-								</Button>
+								<Link
+									to={`/books/${book.volumeInfo.industryIdentifiers[0].identifier}`}>
+									<Button variant='outline-dark'>Details</Button>
+								</Link>
 							</Card>
 						);
 					} else {

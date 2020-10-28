@@ -4,6 +4,7 @@ import Nav from './components/Nav';
 import Home from './components/Home';
 import BookList from './components/BookList';
 import SearchForm from './components/SearchForm';
+import BookDetail from './components/BookDetail';
 
 const App = () => {
 	const [books, setBooks] = useState(null);
@@ -17,6 +18,7 @@ const App = () => {
 			})
 			.catch(console.error);
 	}, []);
+	console.log(books);
 	return (
 		<div>
 			<header>
@@ -26,12 +28,18 @@ const App = () => {
 			<main>
 				<Route exact path='/' component={Home} />
 				<Route
+					exact
 					path='/books'
 					render={() => {
 						return <BookList books={books} />;
 					}}
 				/>
-				{/* <Route path='/book/:book' render=() />*/}
+				<Route
+					path='/books/:book'
+					render={(routerProps) => {
+						return <BookDetail match={routerProps.match} />;
+					}}
+				/>
 			</main>
 		</div>
 	);
