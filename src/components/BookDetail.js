@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const BookDetail = ({ match }) => {
 	const [book, setBook] = useState(null);
@@ -34,6 +35,9 @@ const BookDetail = ({ match }) => {
 					{book.volumeInfo.categories[0]}
 				</Card.Subtitle>
 			</Card>
+			<Link to={'/books'}>
+				<Button>BookList</Button>
+			</Link>
 		</div>
 	);
 };
