@@ -7,18 +7,26 @@ import SearchForm from './components/SearchForm';
 import BookDetail from './components/BookDetail';
 
 const App = () => {
-	const [books, setBooks] = useState(null);
-	const [searchObj, setSearchObj] = useState([]);
+	let [books, setBooks] = useState(null);
+	const [searchObj, setSearchObj] = useState({
+		title: '',
+		author: '',
+		isbn: '',
+	});
 	useEffect(() => {
 		fetch(
-			`https://www.googleapis.com/books/v1/volumes?q=intitle:the+stand&inauthor:king&key=${process.env.REACT_APP_KEY}`
+			`https://www.googleapis.com/books/v1/volumes?q=${
+				searchObj.title ? `intitle:${searchObj.title}&` : ''
+			}
+			inauthor:${searchObj.author}&key=${process.env.REACT_APP_KEY}`
 		)
 			.then((res) => res.json())
 			.then((res) => {
 				setBooks(res.items);
 			})
 			.catch(console.error);
-	}, []);
+	}, [searchObj.title, searchObj.author]);
+	console.log(books);
 	return (
 		<div>
 			<header>

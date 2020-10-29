@@ -6,6 +6,7 @@ const BookList = ({ books }) => {
 	if (books === null) {
 		return <div>Book List not Found</div>;
 	}
+	console.log(books);
 	return (
 		<div className='book-list'>
 			<CardColumns>
@@ -18,20 +19,20 @@ const BookList = ({ books }) => {
 									src={book.volumeInfo.imageLinks.thumbnail}
 								/>
 								<Card.Title>{book.volumeInfo.title}</Card.Title>
-								{book.volumeInfo.authors.map((author, i) => {
+								{/* {book.volumeInfo.authors.map((author, i) => {
 									return (
 										<Card.Subtitle key={i} className='mb-2 text-muted'>
 											{author}
 										</Card.Subtitle>
 									);
-								})}
-								<Card.Subtitle variant='secondary' size='sm'>
+								})} */}
+								{/* <Card.Subtitle variant='secondary' size='sm'>
 									{book.volumeInfo.categories[0]}
-								</Card.Subtitle>
-								<Link
+								</Card.Subtitle> */}
+								{/* {<Link
 									to={`/books/${book.volumeInfo.industryIdentifiers[0].identifier}`}>
 									<Button variant='outline-dark'>Details</Button>
-								</Link>
+								</Link> */}
 							</Card>
 						);
 					} else {

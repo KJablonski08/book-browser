@@ -16,7 +16,6 @@ const SearchForm = ({ searchObj, setSearchObj }) => {
 		setSearchObj(formState);
 		setFormState(initialState);
 	};
-	console.log(formState);
 	return (
 		<div>
 			<Form inline className='searchForm' onSubmit={handleSubmit}>
@@ -26,6 +25,7 @@ const SearchForm = ({ searchObj, setSearchObj }) => {
 						id='title'
 						aria-label='title'
 						aria-describedby='basic-addon2'
+						value={formState.title}
 					/>
 				</InputGroup>
 				<InputGroup onChange={handleChange}>
@@ -34,6 +34,7 @@ const SearchForm = ({ searchObj, setSearchObj }) => {
 						id='author'
 						aria-label='author'
 						aria-describedby='basic-addon2'
+						value={formState.author}
 					/>
 				</InputGroup>
 				<InputGroup onChange={handleChange}>
@@ -42,6 +43,7 @@ const SearchForm = ({ searchObj, setSearchObj }) => {
 						id='isbn'
 						aria-label='isbn'
 						aria-describedby='basic-addon2'
+						value={formState.isbn}
 					/>
 				</InputGroup>
 				<Button type='submit'>Submit</Button>
