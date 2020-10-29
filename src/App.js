@@ -28,7 +28,6 @@ const App = () => {
 			})
 			.catch(console.error);
 	}, [searchObj.title, searchObj.author]);
-	console.log(books);
 	return (
 		<div>
 			<header>

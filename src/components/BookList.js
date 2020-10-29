@@ -3,10 +3,9 @@ import { Card, CardColumns, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const BookList = ({ books }) => {
-	if (books === null) {
+	if (!books) {
 		return <div>Book List not Found</div>;
 	}
-	console.log(books);
 	return (
 		<div className='book-list'>
 			<CardColumns>
