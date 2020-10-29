@@ -28,10 +28,12 @@ const BookDetail = ({ match }) => {
 	return (
 		<div>
 			<Card className='book-box card-cascade-narrower detail'>
-				<Card.Img
-					className='book-image'
-					src={book.volumeInfo.imageLinks.thumbnail}
-				/>
+				<a target='_blank' rel='noreferrer' href={book.volumeInfo.previewLink}>
+					<Card.Img
+						className='book-image'
+						src={book.volumeInfo.imageLinks.thumbnail}
+					/>
+				</a>
 				<Card.Title>{book.volumeInfo.title}</Card.Title>
 				{book.volumeInfo.authors.map((author, i) => {
 					return (
@@ -49,10 +51,7 @@ const BookDetail = ({ match }) => {
 					Page Count: {book.volumeInfo.pageCount}
 				</Card.Subtitle>
 				<hr />
-				<a href={book.volumeInfo.previewLink}>
-					<Button>Preview</Button>
-				</a>
-				<a href={book.volumeInfo.infoLink}>
+				<a target='_blank' rel='noreferrer' href={book.volumeInfo.infoLink}>
 					<Button>Purchase Now</Button>
 				</a>
 				{/* https://stackoverflow.com/questions/42914666/react-router-external-link */}

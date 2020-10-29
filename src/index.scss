@@ -20,8 +20,15 @@ if they are direct children of the #root element.
 
 .search {
 	padding: 20px;
+	margin: 20px;
 	display: grid;
 	justify-content: center;
+}
+
+.searchForm {
+	display: grid;
+	justify-content: space-around;
+	margin: 2em 8em;
 }
 
 .book-list {

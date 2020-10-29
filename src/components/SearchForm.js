@@ -7,32 +7,43 @@ import {
 	InputGroup,
 } from 'react-bootstrap';
 
-const SearchForm = () => {
-	const [value, setValue] = useState([1, 3]);
-	const handleToggleChange = (val) => setValue(val);
+const SearchForm = ({ searchObj, setSearchObj }) => {
+	const initialState = {
+		title: '',
+		author: '',
+		isbn: '',
+	};
+	const [formState, setFormState] = useState(initialState);
+	const handleChange = (event) => {
+		setSearchObj(event.target.value);
+	};
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		setSearchObj(searchObj);
+	};
 	return (
-		<div className='search'>
-			<Form inline>
+		<div>
+			<Form inline className='searchForm'>
 				<InputGroup>
 					<FormControl
-						placeholder='Search By'
+						placeholder='Search by Title'
 						aria-label='Search By'
 						aria-describedby='basic-addon2'
 					/>
-					<ToggleButtonGroup
-						type='checkbox'
-						value={value}
-						onChange={handleToggleChange}>
-						<ToggleButton variant='outline-secondary' value={1}>
-							Title
-						</ToggleButton>
-						<ToggleButton variant='outline-secondary' value={2}>
-							Author
-						</ToggleButton>
-						<ToggleButton variant='outline-secondary' value={3}>
-							ISBN
-						</ToggleButton>
-					</ToggleButtonGroup>
+				</InputGroup>
+				<InputGroup>
+					<FormControl
+						placeholder='Search by Author'
+						aria-label='Search By'
+						aria-describedby='basic-addon2'
+					/>
+				</InputGroup>
+				<InputGroup>
+					<FormControl
+						placeholder='Search by ISBN'
+						aria-label='Search By'
+						aria-describedby='basic-addon2'
+					/>
 				</InputGroup>
 			</Form>
 		</div>
