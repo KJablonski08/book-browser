@@ -10,37 +10,37 @@ const BookList = ({ books }) => {
 		<div className='book-list'>
 			<CardColumns>
 				{books.map((book, i) => {
-					if (book.volumeInfo.imageLinks) {
-						return (
-							<Card key={i} className='book-box card-cascade-narrower'>
+					return (
+						<Card key={i} className='book-box card-cascade-narrower'>
+							{book.volumeInfo.imageLinks && (
 								<Card.Img
 									className='book-image'
 									src={book.volumeInfo.imageLinks.thumbnail}
 								/>
-								<Card.Title>{book.volumeInfo.title}</Card.Title>
-								{/* {book.volumeInfo.authors.map((author, i) => {
+							)}
+
+							<Card.Title>{book.volumeInfo.title}</Card.Title>
+							{book.volumeInfo.authors &&
+								book.volumeInfo.authors.map((author, i) => {
 									return (
 										<Card.Subtitle key={i} className='mb-2 text-muted'>
 											{author}
 										</Card.Subtitle>
 									);
-								})} */}
-								{/* <Card.Subtitle variant='secondary' size='sm'>
+								})}
+							{book.volumeInfo.categories && (
+								<Card.Subtitle variant='secondary' size='sm'>
 									{book.volumeInfo.categories[0]}
-								</Card.Subtitle> */}
-								{/* {<Link
+								</Card.Subtitle>
+							)}
+							{book.volumeInfo.industryIdentifiers ? (
+								<Link
 									to={`/books/${book.volumeInfo.industryIdentifiers[0].identifier}`}>
 									<Button variant='outline-dark'>Details</Button>
-								</Link> */}
-							</Card>
-						);
-					} else {
-						return (
-							<Card key={i} className='book-box'>
-								<Card.Title>{book.volumeInfo.title}</Card.Title>
-							</Card>
-						);
-					}
+								</Link>
+							) : null}
+						</Card>
+					);
 				})}
 			</CardColumns>
 		</div>

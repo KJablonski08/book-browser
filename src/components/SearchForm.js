@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form, FormControl, Button, InputGroup } from 'react-bootstrap';
+import { Redirect } from 'react-router-dom';
 
 const SearchForm = ({ searchObj, setSearchObj }) => {
 	const initialState = {

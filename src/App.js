@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Nav from './components/Nav';
 import Home from './components/Home';
 import BookList from './components/BookList';
 import SearchForm from './components/SearchForm';
 import BookDetail from './components/BookDetail';
+import NotFound from './components/NotFound';
 
 const App = () => {
 	let [books, setBooks] = useState(null);
@@ -35,20 +36,23 @@ const App = () => {
 				<SearchForm searchObj={searchObj} setSearchObj={setSearchObj} />
 			</header>
 			<main>
-				<Route exact path='/' component={Home} />
-				<Route
-					exact
-					path='/books'
-					render={() => {
-						return <BookList books={books} />;
-					}}
-				/>
-				<Route
-					path='/books/:book'
-					render={(routerProps) => {
-						return <BookDetail match={routerProps.match} />;
-					}}
-				/>
+				<Switch>
+					<Route exact path='/' component={Home} />
+					<Route
+						exact
+						path='/books'
+						render={() => {
+							return <BookList books={books} />;
+						}}
+					/>
+					<Route
+						path='/books/:book'
+						render={(routerProps) => {
+							return <BookDetail match={routerProps.match} />;
+						}}
+					/>
+					<Route component={NotFound} />
+				</Switch>
 			</main>
 		</div>
 	);
