@@ -18,7 +18,9 @@ const App = () => {
 			`https://www.googleapis.com/books/v1/volumes?q=${
 				searchObj.title ? `intitle:${searchObj.title}&` : ''
 			}
-			inauthor:${searchObj.author}&key=${process.env.REACT_APP_KEY}`
+      ${searchObj.author ? `inauthor:${searchObj.author}&` : ''}
+      ${searchObj.isbn ? `isbn:${searchObj.isbn}&` : ''}
+      key=${process.env.REACT_APP_KEY}`
 		)
 			.then((res) => res.json())
 			.then((res) => {
