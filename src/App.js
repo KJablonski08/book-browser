@@ -8,7 +8,7 @@ import BookDetail from './components/BookDetail';
 
 const App = () => {
 	const [books, setBooks] = useState(null);
-	const [searchObj, setSearchObj] = useState({});
+	const [searchObj, setSearchObj] = useState([]);
 	useEffect(() => {
 		fetch(
 			`https://www.googleapis.com/books/v1/volumes?q=intitle:the+stand&inauthor:king&key=${process.env.REACT_APP_KEY}`

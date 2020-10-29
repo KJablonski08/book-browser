@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
-import {
-	Form,
-	FormControl,
-	ToggleButtonGroup,
-	ToggleButton,
-	InputGroup,
-} from 'react-bootstrap';
+import { Form, FormControl, Button, InputGroup } from 'react-bootstrap';
 
 const SearchForm = ({ searchObj, setSearchObj }) => {
 	const initialState = {
@@ -15,36 +9,42 @@ const SearchForm = ({ searchObj, setSearchObj }) => {
 	};
 	const [formState, setFormState] = useState(initialState);
 	const handleChange = (event) => {
-		setSearchObj(event.target.value);
+		setFormState({ ...formState, [event.target.id]: event.target.value });
 	};
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		setSearchObj(searchObj);
+		setSearchObj(formState);
+		setFormState(initialState);
 	};
+	console.log(formState);
 	return (
 		<div>
-			<Form inline className='searchForm'>
-				<InputGroup>
+			<Form inline className='searchForm' onSubmit={handleSubmit}>
+				<InputGroup onChange={handleChange}>
 					<FormControl
 						placeholder='Search by Title'
-						aria-label='Search By'
+						id='title'
+						aria-label='title'
 						aria-describedby='basic-addon2'
 					/>
 				</InputGroup>
-				<InputGroup>
+				<InputGroup onChange={handleChange}>
 					<FormControl
 						placeholder='Search by Author'
-						aria-label='Search By'
+						id='author'
+						aria-label='author'
 						aria-describedby='basic-addon2'
 					/>
 				</InputGroup>
-				<InputGroup>
+				<InputGroup onChange={handleChange}>
 					<FormControl
 						placeholder='Search by ISBN'
-						aria-label='Search By'
+						id='isbn'
+						aria-label='isbn'
 						aria-describedby='basic-addon2'
 					/>
 				</InputGroup>
+				<Button type='submit'>Submit</Button>
 			</Form>
 		</div>
 	);
