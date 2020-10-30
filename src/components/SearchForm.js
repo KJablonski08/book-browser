@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Form, FormControl, Button, InputGroup } from 'react-bootstrap';
-import { Redirect } from 'react-router-dom';
 
 const SearchForm = ({ searchObj, setSearchObj }) => {
 	const initialState = {
@@ -20,8 +19,9 @@ const SearchForm = ({ searchObj, setSearchObj }) => {
 	return (
 		<div>
 			<Form inline className='searchForm' onSubmit={handleSubmit}>
-				<InputGroup onChange={handleChange}>
+				<InputGroup>
 					<FormControl
+						onChange={handleChange}
 						placeholder='Search by Title'
 						id='title'
 						aria-label='title'
@@ -29,8 +29,9 @@ const SearchForm = ({ searchObj, setSearchObj }) => {
 						value={formState.title}
 					/>
 				</InputGroup>
-				<InputGroup onChange={handleChange}>
+				<InputGroup>
 					<FormControl
+						onChange={handleChange}
 						placeholder='Search by Author'
 						id='author'
 						aria-label='author'
@@ -38,8 +39,9 @@ const SearchForm = ({ searchObj, setSearchObj }) => {
 						value={formState.author}
 					/>
 				</InputGroup>
-				<InputGroup onChange={handleChange}>
+				<InputGroup>
 					<FormControl
+						onChange={handleChange}
 						placeholder='Search by ISBN'
 						id='isbn'
 						aria-label='isbn'

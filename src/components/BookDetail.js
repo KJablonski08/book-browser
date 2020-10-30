@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const BookDetail = ({ match }) => {
 	const [book, setBook] = useState(null);
-	const [error, setError] = useState();
 	useEffect(() => {
 		fetch(
 			`https://www.googleapis.com/books/v1/volumes?q=isbn:${match.params.book}&key=${process.env.REACT_APP_KEY}`
@@ -27,6 +26,7 @@ const BookDetail = ({ match }) => {
 	}
 	return (
 		<div>
+			<br />
 			<Card className='book-box card-cascade-narrower detail'>
 				<a target='_blank' rel='noreferrer' href={book.volumeInfo.previewLink}>
 					<Card.Img

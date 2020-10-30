@@ -28,12 +28,11 @@ const App = () => {
 				setBooks(res.items);
 			})
 			.catch(console.error);
-	}, [searchObj.title, searchObj.author]);
+	}, [searchObj.title, searchObj.author, searchObj.isbn]);
 	return (
 		<div>
 			<header>
 				<Nav />
-				<SearchForm searchObj={searchObj} setSearchObj={setSearchObj} />
 			</header>
 			<main>
 				<Switch>
@@ -42,7 +41,13 @@ const App = () => {
 						exact
 						path='/books'
 						render={() => {
-							return <BookList books={books} />;
+							return (
+								<BookList
+									books={books}
+									searchObj={searchObj}
+									setSearchObj={setSearchObj}
+								/>
+							);
 						}}
 					/>
 					<Route
