@@ -33,6 +33,7 @@ if they are direct children of the #root element.
 
 .book-list {
 	margin: 0em 8em;
+	display: grid;
 }
 
 .book-image {
@@ -41,18 +42,16 @@ if they are direct children of the #root element.
 }
 
 .book-box {
-	background: linear-gradient(
-		0deg,
-		rgba(244, 245, 249, 1) 23%,
-		rgba(103, 103, 103, 1) 100%
-	);
-	border-radius: 20%;
-	margin: 20px;
-	padding: -5px 0px 5px 5px;
+	// background: linear-gradient(
+	// 	0deg,
+	// 	rgba(244, 245, 249, 1) 23%,
+	// 	rgba(103, 103, 103, 1) 100%
+	// );
+	margin: 18%;
 }
 
 .book-image:hover {
-	box-shadow: 3px 3px 5px 6px #ccc;
+	box-shadow: 3px 3px 5px 6px orange;
 	animation: zoomin 0.5s;
 }
 
@@ -64,11 +63,7 @@ if they are direct children of the #root element.
 }
 // SOURCE for card-cascase-narrow https://codepen.io/Devcrud/pen/YzXdBLK
 
-.card-text {
-	display: inline-flex;
-	flex-direction: column;
-	align-items: flex-start;
-}
+//Not Found Page BELOW
 
 .detail {
 	display: grid;
