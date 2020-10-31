@@ -14,37 +14,31 @@ const NytBestsellers = () => {
 			})
 			.catch(console.error);
 	}, []);
-	console.log(list);
+	if (!list) {
+		return (
+			<div className='book-list'>
+				<p>Book List not Found</p>
+			</div>
+		);
+	}
 	return (
 		<div>
 			<Container className='authors'>
-				<br />
+				<h4>The New York Times Best Sellers</h4>
+				<h2>Best Sellers: {list.results.list_name}</h2>
 				<Carousel>
-					<Carousel.Item>
-						<Button className='carousel-btn' variant='dark'></Button>
-						<Button className='carousel-btn' variant='dark'></Button>
-						<Button className='carousel-btn' variant='dark'></Button>
-					</Carousel.Item>
-					<Carousel.Item>
-						<Button className='carousel-btn' variant='dark'></Button>
-						<Button className='carousel-btn' variant='dark'></Button>
-						<Button className='carousel-btn' variant='dark'></Button>
-					</Carousel.Item>
-					<Carousel.Item>
-						<Button className='carousel-btn' variant='dark'></Button>
-						<Button className='carousel-btn' variant='dark'></Button>
-						<Button className='carousel-btn' variant='dark'></Button>
-					</Carousel.Item>
-					<Carousel.Item>
-						<Button className='carousel-btn' variant='dark'></Button>
-						<Button className='carousel-btn' variant='dark'></Button>
-						<Button className='carousel-btn' variant='dark'></Button>
-					</Carousel.Item>
-					<Carousel.Item>
-						<Button className='carousel-btn' variant='dark'></Button>
-						<Button className='carousel-btn' variant='dark'></Button>
-						<Button className='carousel-btn' variant='dark'></Button>
-					</Carousel.Item>
+					{list.results.books.map((bestseller, i) => {
+						return (
+							<Carousel.Item>
+								<span>{bestseller.rank} </span>
+								<img
+									className='nyt-img'
+									src={bestseller.book_image}
+									alt='First slide'
+								/>
+							</Carousel.Item>
+						);
+					})}
 				</Carousel>
 			</Container>
 		</div>
