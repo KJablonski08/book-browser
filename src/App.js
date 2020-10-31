@@ -15,7 +15,7 @@ const App = () => {
 	});
 	useEffect(() => {
 		fetch(
-			`https://www.googleapis.com/books/v1/volumes?q=${
+			`https://www.googleapis.com/books/v1/volumes?&maxResults=25&orderBy:relevance&q=${
 				searchObj.title ? `intitle:${searchObj.title}&` : ''
 			}
       ${searchObj.author ? `inauthor:${searchObj.author}&` : ''}
@@ -38,8 +38,14 @@ const App = () => {
 					<Route
 						exact
 						path='/'
-						render={() => {
-							return <Home searchObj={searchObj} setSearchObj={setSearchObj} />;
+						render={(routerProps) => {
+							return (
+								<Home
+									searchObj={searchObj}
+									setSearchObj={setSearchObj}
+									history={routerProps.history}
+								/>
+							);
 						}}
 					/>
 					<Route

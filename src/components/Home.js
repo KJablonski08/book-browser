@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Jumbotron, Container, Button, Carousel } from 'react-bootstrap';
+import React from 'react';
+import { Jumbotron, Container, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import AuthorCategory from './AuthorCategory';
 
-const Home = ({ searchObj, setSearchObj }) => {
-	const handleSubmit = (event) => {
-		event.preventDefault();
-		setSearchObj({ ...searchObj, author: event.target.textContent });
-	};
+const Home = ({ searchObj, setSearchObj, history }) => {
 	return (
 		<div>
 			<br />
@@ -18,55 +15,11 @@ const Home = ({ searchObj, setSearchObj }) => {
 					</Link>
 				</Container>
 			</Jumbotron>
-			<Container className='authors'>
-				<h2>Most Browsed Authors</h2>
-				<br />
-				<Carousel>
-					<Carousel.Item>
-						<Button
-							onClick={handleSubmit}
-							className='carousel-btn'
-							variant='dark'>
-							William Shakespeare
-						</Button>
-						<Button className='carousel-btn' variant='dark'>
-							Rowling
-						</Button>
-						<Button className='carousel-btn' variant='dark'>
-							Books
-						</Button>
-					</Carousel.Item>
-					<Carousel.Item>
-						<Button
-							className='carousel-btn'
-							variant='dark'
-							onClick={handleSubmit}>
-							Agatha Christie
-						</Button>
-
-						<Button className='carousel-btn' variant='dark'>
-							Books
-						</Button>
-
-						<Button className='carousel-btn' variant='dark'>
-							Books
-						</Button>
-					</Carousel.Item>
-					<Carousel.Item>
-						<Button className='carousel-btn' variant='dark'>
-							Books
-						</Button>
-
-						<Button className='carousel-btn' variant='dark'>
-							Books
-						</Button>
-
-						<Button className='carousel-btn' variant='dark'>
-							Books
-						</Button>
-					</Carousel.Item>
-				</Carousel>
-			</Container>
+			<AuthorCategory
+				searchObj={searchObj}
+				setSearchObj={setSearchObj}
+				history={history}
+			/>
 		</div>
 	);
 };
