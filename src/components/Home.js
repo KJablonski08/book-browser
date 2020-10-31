@@ -1,7 +1,8 @@
 import React from 'react';
 import { Jumbotron, Container, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import AuthorCategory from './AuthorCategory';
+import Category from './Category';
+import NytBestsellers from './NytBestsellers';
 
 const Home = ({ searchObj, setSearchObj, history }) => {
 	return (
@@ -15,11 +16,13 @@ const Home = ({ searchObj, setSearchObj, history }) => {
 					</Link>
 				</Container>
 			</Jumbotron>
-			<AuthorCategory
+			<Category
 				searchObj={searchObj}
 				setSearchObj={setSearchObj}
 				history={history}
 			/>
+			<br />
+			<NytBestsellers />
 		</div>
 	);
 };

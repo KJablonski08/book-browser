@@ -1,7 +1,7 @@
 import React from 'react';
 import { Carousel, Button, Container } from 'react-bootstrap';
 
-const AuthorCategory = ({ searchObj, setSearchObj, history }) => {
+const Category = ({ searchObj, setSearchObj, history }) => {
 	const handleAuthorSubmit = (event) => {
 		event.preventDefault();
 		setSearchObj({ ...searchObj, author: event.target.textContent });
@@ -124,4 +124,4 @@ const AuthorCategory = ({ searchObj, setSearchObj, history }) => {
 	);
 };
 
-export default AuthorCategory;
+export default Category;
