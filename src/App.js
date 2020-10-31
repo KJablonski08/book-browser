@@ -35,7 +35,13 @@ const App = () => {
 			</header>
 			<main>
 				<Switch>
-					<Route exact path='/' component={Home} />
+					<Route
+						exact
+						path='/'
+						render={() => {
+							return <Home searchObj={searchObj} setSearchObj={setSearchObj} />;
+						}}
+					/>
 					<Route
 						exact
 						path='/books'

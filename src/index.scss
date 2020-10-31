@@ -66,6 +66,24 @@ if they are direct children of the #root element.
 }
 // SOURCE for card-cascase-narrow https://codepen.io/Devcrud/pen/YzXdBLK
 
+.carousel {
+	display: grid;
+	justify-content: center;
+}
+
+.carousel-indicators li {
+	visibility: hidden;
+}
+
+.carousel-btn {
+	margin: 5px;
+}
+
+.authors {
+	padding: 10vh;
+	background-color: lightgreen;
+}
+
 //Not Found Page BELOW
 
 .detail {
