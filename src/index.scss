@@ -33,7 +33,6 @@ if they are direct children of the #root element.
 
 .book-list {
 	margin: 0em 8em;
-	display: grid;
 }
 
 .book-image {
@@ -41,18 +40,22 @@ if they are direct children of the #root element.
 	max-width: 10rem;
 }
 
-.book-box {
-	// background: linear-gradient(
-	// 	0deg,
-	// 	rgba(244, 245, 249, 1) 23%,
-	// 	rgba(103, 103, 103, 1) 100%
-	// );
-	margin: 18%;
+.card {
+	border: 1px solid red;
 }
 
 .book-image:hover {
-	box-shadow: 3px 3px 5px 6px orange;
+	box-shadow: 3px 3px 5px 6px lightgray;
 	animation: zoomin 0.5s;
+}
+
+.book-box {
+	background: linear-gradient(
+		0deg,
+		rgba(254, 254, 254, 1) 5%,
+		rgba(85, 205, 215, 1) 94%
+	);
+	margin: 18%;
 }
 
 .card-cascade-narrower {

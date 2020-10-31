@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const BookList = ({ books, searchObj, setSearchObj }) => {
 	if (!books) {
 		return (
-			<div>
+			<div className='book-list'>
 				<SearchForm searchObj={searchObj} setSearchObj={setSearchObj} />
 				<p>Book List not Found</p>
 			</div>
@@ -19,7 +19,7 @@ const BookList = ({ books, searchObj, setSearchObj }) => {
 			<CardColumns>
 				{books.map((book, i) => {
 					return (
-						<Card className='book-box card-cascade-narrower'>
+						<Card className='book-box card-cascade-narrower border-0'>
 							<div className='row no-gutters'>
 								<div className='col-md-4'>
 									{book.volumeInfo.imageLinks && (
