@@ -16,7 +16,7 @@ const App = () => {
 	});
 	useEffect(() => {
 		fetch(
-			`https://www.googleapis.com/books/v1/volumes?&maxResults=25&orderBy:relevance&q=${
+			`https://www.googleapis.com/books/v1/volumes?&maxResults=25&q=${
 				searchObj.title ? `intitle:${searchObj.title}&` : ''
 			}
       ${searchObj.author ? `inauthor:${searchObj.author}&` : ''}
