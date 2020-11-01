@@ -4,7 +4,7 @@ import { Carousel, Button } from 'react-bootstrap';
 const Category = ({ searchObj, setSearchObj, history }) => {
 	const handleAuthorSubmit = (event) => {
 		event.preventDefault();
-		setSearchObj({ ...searchObj, author: event.target.textContent });
+		setSearchObj({ ...searchObj, title: '', author: event.target.textContent });
 		history.push('/books');
 	};
 	return (
