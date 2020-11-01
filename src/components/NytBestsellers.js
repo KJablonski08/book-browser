@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Carousel, Container, Button } from 'react-bootstrap';
 
-const NytBestsellers = () => {
+const NytBestsellers = ({ searchObj, setSearchObj, history }) => {
 	const [list, setList] = useState(null);
+	const [bestSeller, setBestSeller] = useState(null);
 	useEffect(() => {
 		fetch(
 			`https://api.nytimes.com/svc/books/v3/lists/current/combined-print-and-e-book-fiction.json?api-key=${process.env.REACT_APP_NYT_KEY}`
@@ -13,6 +14,11 @@ const NytBestsellers = () => {
 			})
 			.catch(console.error);
 	}, []);
+	const handleClick = (bestseller) => {
+		setSearchObj({ ...searchObj, isbn: bestseller.primary_isbn10 });
+		history.push('/books');
+	};
+
 	if (!list) {
 		return (
 			<div className='book-list'>
@@ -28,7 +34,7 @@ const NytBestsellers = () => {
 				<Carousel>
 					{list.results.books.map((bestseller, i) => {
 						return (
-							<Carousel.Item>
+							<Carousel.Item key={i} onClick={() => handleClick(bestseller)}>
 								<span>{bestseller.rank} </span>
 								<img
 									className='nyt-img'

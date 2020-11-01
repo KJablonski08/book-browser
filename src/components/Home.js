@@ -16,7 +16,11 @@ const Home = ({ searchObj, setSearchObj, history }) => {
 					</Link>
 				</Container>
 			</Jumbotron>
-			<NytBestsellers />
+			<NytBestsellers
+				searchObj={searchObj}
+				setSearchObj={setSearchObj}
+				history={history}
+			/>
 			<br />
 			<Category
 				searchObj={searchObj}

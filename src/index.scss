@@ -40,10 +40,6 @@ if they are direct children of the #root element.
 	max-width: 10rem;
 }
 
-.card {
-	border: 1px solid red;
-}
-
 .book-image:hover {
 	box-shadow: 3px 3px 5px 6px lightgray;
 	animation: zoomin 0.5s;
@@ -52,9 +48,11 @@ if they are direct children of the #root element.
 .book-box {
 	background: linear-gradient(
 		0deg,
-		rgba(254, 254, 254, 1) 5%,
-		rgba(85, 205, 215, 1) 94%
+		rgba(254, 254, 254, 1) 0%,
+		rgba(146, 141, 171, 1) 51%,
+		rgba(31, 28, 44, 1) 88%
 	);
+	color: white;
 	margin: 18%;
 }
 
@@ -81,7 +79,20 @@ if they are direct children of the #root element.
 
 .authors {
 	padding: 10vh;
-	background-color: lightgreen;
+	background: #0f2027; /* fallback for old browsers */
+	background: -webkit-linear-gradient(
+		to right,
+		#0f2027,
+		#203a43,
+		#2c5364
+	); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(
+		to right,
+		#0f2027,
+		#203a43,
+		#2c5364
+	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	color: white;
 }
 
 .nyt-img {
