@@ -10,8 +10,10 @@ const BookList = ({ books, searchObj, setSearchObj }) => {
 			<div className='book-list'>
 				<SearchForm searchObj={searchObj} setSearchObj={setSearchObj} />
 				<div className='d-flex justify-content-center'>
-					<h6>Please enter a search to begin</h6>
+					<h6>Please enter a search to begin or select a random book</h6>
 				</div>
+				<div className='d-flex justify-content-center'></div>
+				<br />
 				<div className='d-flex justify-content-center'>
 					<Link to={'/'}>
 						<Button variant='dark'>Home</Button>
