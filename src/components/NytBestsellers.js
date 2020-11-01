@@ -28,7 +28,14 @@ const NytBestsellers = ({ searchObj, setSearchObj, history }) => {
 		history.push('/books');
 	};
 
-	if (!list || !nfList) {
+	if (!list) {
+		return (
+			<div className='book-list'>
+				<p>Book List not Found</p>
+			</div>
+		);
+	}
+	if (!nfList) {
 		return (
 			<div className='book-list'>
 				<p>Book List not Found</p>

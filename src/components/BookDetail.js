@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button, Spinner } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const BookDetail = ({ match }) => {
@@ -17,10 +17,13 @@ const BookDetail = ({ match }) => {
 	if (book === null) {
 		return (
 			<div>
-				<h5>I'm Sorry - there was an error. Please try another book</h5>
-				<Link to={'/books'}>
-					<Button>BookList</Button>
-				</Link>
+				<div className='d-flex justify-content-center'>
+					<Spinner animation='border' variant='primary' />
+					<h6>Loading... Please Wait</h6>
+					<Link to={'/'}>
+						<Button>Home</Button>
+					</Link>
+				</div>
 			</div>
 		);
 	}
@@ -28,43 +31,67 @@ const BookDetail = ({ match }) => {
 		<div>
 			<br />
 			<Card className='book-box card-cascade-narrower detail'>
-				<a target='_blank' rel='noreferrer' href={book.volumeInfo.previewLink}>
-					<Card.Img
-						className='book-image'
-						src={book.volumeInfo.imageLinks.thumbnail}
-					/>
-				</a>
+				{book.volumeInfo.previewLink && book.volumeInfo.imageLinks && (
+					<a
+						target='_blank'
+						rel='noreferrer'
+						href={book.volumeInfo.previewLink}>
+						<Card.Img
+							className='book-image'
+							src={book.volumeInfo.imageLinks.thumbnail}
+						/>
+					</a>
+				)}
 				<Card.Title>{book.volumeInfo.title}</Card.Title>
-				{book.volumeInfo.authors.map((author, i) => {
-					return (
-						<Card.Subtitle key={i} className='mb-2 text-muted'>
-							{author}
-						</Card.Subtitle>
-					);
-				})}
-				<Card.Subtitle variant='secondary' size='sm'>
-					{book.volumeInfo.categories[0]}
-				</Card.Subtitle>
+				{book.volumeInfo.authors &&
+					book.volumeInfo.authors.map((author, i) => {
+						return (
+							<Card.Subtitle key={i} className='mb-2 text-muted'>
+								{author}
+							</Card.Subtitle>
+						);
+					})}
+				{book.volumeInfo.categories && (
+					<Card.Subtitle variant='secondary' size='sm'>
+						{book.volumeInfo.categories[0]}
+					</Card.Subtitle>
+				)}
 				<hr />
-				<Card.Text>{book.volumeInfo.description}</Card.Text>
-				<Card.Text variant='secondary' size='sm'>
-					Publisher: {book.volumeInfo.publisher}
-				</Card.Text>
-				<Card.Text variant='secondary' size='sm'>
-					Published Date: {book.volumeInfo.publishedDate}
-				</Card.Text>
+				{book.volumeInfo.description && (
+					<Card.Text>{book.volumeInfo.description}</Card.Text>
+				)}
+				{book.volumeInfo.publisher && (
+					<Card.Text variant='secondary' size='sm'>
+						Publisher: {book.volumeInfo.publisher}
+					</Card.Text>
+				)}
+				{book.volumeInfo.publishedDate && (
+					<Card.Text variant='secondary' size='sm'>
+						Published Date: {book.volumeInfo.publishedDate}
+					</Card.Text>
+				)}
 				<Card.Text variant='secondary' size='sm'>
 					Page Count: {book.volumeInfo.pageCount}
 				</Card.Text>
 				<hr />
-				<a target='_blank' rel='noreferrer' href={book.volumeInfo.infoLink}>
-					<Button>Purchase Now</Button>
-				</a>
+				{book.volumeInfo.infoLink && (
+					<a
+						target='_blank'
+						rel='noreferrer'
+						href={book.volumeInfo.infoLink}
+						className='d-flex justify-content-center'>
+						<Button>Purchase Now</Button>
+					</a>
+				)}
 				{/* SOURCE: https://stackoverflow.com/questions/42914666/react-router-external-link */}
+				<br />
 			</Card>
-			<Link to={'/books'}>
-				<Button>BookList</Button>
-			</Link>
+			<br />
+			<div className='d-flex justify-content-center'>
+				<Link to={'/books'}>
+					<Button>BookList</Button>
+				</Link>
+			</div>
 		</div>
 	);
 };
