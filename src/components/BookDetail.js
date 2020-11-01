@@ -16,12 +16,19 @@ const BookDetail = ({ match }) => {
 	}, []);
 	if (book === null) {
 		return (
-			<div>
+			<div className='margin'>
+				<br />
 				<div className='d-flex justify-content-center'>
 					<Spinner animation='border' variant='primary' />
+				</div>
+				<div>
 					<h6>Loading... Please Wait</h6>
+					<p>
+						If your book does not load in a few seconds - please navigate back
+						to home and try your search again
+					</p>
 					<Link to={'/'}>
-						<Button>Home</Button>
+						<Button variant='dark'>Home</Button>
 					</Link>
 				</div>
 			</div>
@@ -80,16 +87,15 @@ const BookDetail = ({ match }) => {
 						rel='noreferrer'
 						href={book.volumeInfo.infoLink}
 						className='d-flex justify-content-center'>
-						<Button>Purchase Now</Button>
+						<Button variant='light'>Purchase Now</Button>
 					</a>
 				)}
-				{/* SOURCE: https://stackoverflow.com/questions/42914666/react-router-external-link */}
 				<br />
 			</Card>
 			<br />
 			<div className='d-flex justify-content-center'>
 				<Link to={'/books'}>
-					<Button>BookList</Button>
+					<Button variant='dark'>BookList</Button>
 				</Link>
 			</div>
 		</div>

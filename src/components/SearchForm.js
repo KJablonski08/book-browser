@@ -49,7 +49,9 @@ const SearchForm = ({ searchObj, setSearchObj }) => {
 						value={formState.isbn}
 					/>
 				</InputGroup>
-				<Button type='submit'>Submit</Button>
+				<Button type='submit' variant='dark'>
+					Submit
+				</Button>
 			</Form>
 		</div>
 	);

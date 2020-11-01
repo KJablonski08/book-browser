@@ -5,6 +5,21 @@ import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const BookList = ({ books, searchObj, setSearchObj }) => {
+	if (books === undefined) {
+		return (
+			<div className='book-list'>
+				<SearchForm searchObj={searchObj} setSearchObj={setSearchObj} />
+				<div className='d-flex justify-content-center'>
+					<h6>Please enter a search to begin</h6>
+				</div>
+				<div className='d-flex justify-content-center'>
+					<Link to={'/'}>
+						<Button variant='dark'>Home</Button>
+					</Link>
+				</div>
+			</div>
+		);
+	}
 	if (!books) {
 		return (
 			<div className='book-list'>
@@ -12,6 +27,10 @@ const BookList = ({ books, searchObj, setSearchObj }) => {
 				<div className='d-flex justify-content-center'>
 					<Spinner animation='border' variant='primary' />
 					<h6>Loading... Please Wait</h6>
+					<p>
+						If books do not load in a few seconds - please navigate back to home
+						and try your search again
+					</p>
 					<Link to={'/'}>
 						<Button>Home</Button>
 					</Link>
@@ -25,24 +44,21 @@ const BookList = ({ books, searchObj, setSearchObj }) => {
 			<CardColumns>
 				{books.map((book, i) => {
 					return (
-						<Card className='book-box card-cascade-narrower border-0'>
+						<Card key={i} className='book-box card-cascade-narrower border-0'>
 							<div className='row no-gutters'>
 								<div className='col-md-4'>
 									{book.volumeInfo.imageLinks && (
-										<Card.Img
-											className='book-image'
-											src={book.volumeInfo.imageLinks.thumbnail}
-										/>
+										<Card.Img src={book.volumeInfo.imageLinks.thumbnail} />
 									)}
 								</div>
 								<div className='col-md-8'>
 									<div className='card-body'>
-										<Card.Text>{book.volumeInfo.title}</Card.Text>
+										<h4>{book.volumeInfo.title}</h4>
 										<br />
 										{book.volumeInfo.authors &&
 											book.volumeInfo.authors.map((author, i) => {
 												return (
-													<Card.Subtitle key={i} className='mb-2 text-muted'>
+													<Card.Subtitle key={i} className='mb-2'>
 														{author}
 													</Card.Subtitle>
 												);
@@ -57,7 +73,7 @@ const BookList = ({ books, searchObj, setSearchObj }) => {
 										{book.volumeInfo.industryIdentifiers ? (
 											<Link
 												to={`/books/${book.volumeInfo.industryIdentifiers[0].identifier}`}>
-												<Button variant='dark'>Details</Button>
+												<Button variant='light'>Details</Button>
 											</Link>
 										) : null}
 									</div>

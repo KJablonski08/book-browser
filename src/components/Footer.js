@@ -1,5 +1,4 @@
 import React from 'react';
-import { Navbar } from 'react-bootstrap';
 
 const Footer = () => {
 	return (
@@ -10,21 +9,24 @@ const Footer = () => {
 					<li>
 						<a
 							target='_blank'
-							href='https://github.com/KJablonski08/book-browser'
-							target='_blank'>
+							rel='noreferrer'
+							href='https://github.com/KJablonski08/book-browser'>
 							<img
 								className='connect-img'
 								src='https://emoji.slack-edge.com/T0351JZQ0/github/019359e4f03230a2.png'
+								alt='github emoji'
 							/>
 						</a>
 					</li>
 					<li>
 						<a
 							target='_blank'
+							rel='noreferrer'
 							href='https://www.linkedin.com/in/katie-jablonski/'>
 							<img
 								src='https://emoji.slack-edge.com/T0351JZQ0/linkedin/d99de7ac281450d9.png'
 								className='connect-img'
+								alt='linkedin emoji'
 							/>
 						</a>
 					</li>

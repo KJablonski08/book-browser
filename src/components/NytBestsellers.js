@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Carousel, Container, Button } from 'react-bootstrap';
+import { Carousel } from 'react-bootstrap';
 
 const NytBestsellers = ({ searchObj, setSearchObj, history }) => {
 	const [list, setList] = useState(null);

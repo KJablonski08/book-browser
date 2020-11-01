@@ -1,5 +1,5 @@
 import React from 'react';
-import { Carousel, Button, Container } from 'react-bootstrap';
+import { Carousel, Button } from 'react-bootstrap';
 
 const Category = ({ searchObj, setSearchObj, history }) => {
 	const handleAuthorSubmit = (event) => {
