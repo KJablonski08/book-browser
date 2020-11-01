@@ -45,7 +45,7 @@ const NytBestsellers = ({ searchObj, setSearchObj, history }) => {
 		<div className='margin'>
 			<div className='authors'>
 				<h4>The New York Times Best Sellers</h4>
-				<h2>Best Sellers: {list.results.list_name}</h2>
+				<h2>Best Sellers: Fiction</h2>
 				<Carousel>
 					{list.results.books.map((bestseller, i) => {
 						return (
@@ -64,7 +64,7 @@ const NytBestsellers = ({ searchObj, setSearchObj, history }) => {
 			<br />
 			<div className='authors'>
 				<h4>The New York Times Best Sellers</h4>
-				<h2>Best Sellers: {nfList.results.list_name}</h2>
+				<h2>Best Sellers: Non-Fiction</h2>
 				<Carousel>
 					{nfList.results.books.map((bestseller, i) => {
 						return (
