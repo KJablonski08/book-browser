@@ -89,7 +89,7 @@ if they are direct children of the #root element.
 }
 
 .authors {
-	padding: 10vh;
+	padding: 8vh;
 	background: #0f2027; /* fallback for old browsers */
 	background: -webkit-linear-gradient(
 		to right,
@@ -104,6 +104,12 @@ if they are direct children of the #root element.
 		#2c5364
 	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	color: white;
+}
+
+.grid-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 20px;
 }
 
 .nyt-img {
@@ -155,7 +161,28 @@ if they are direct children of the #root element.
 }
 
 #footer {
-	padding-top: 32%;
+	margin-top: 32%;
+	background: #f0f2f0; /* fallback for old browsers */
+	background: -webkit-linear-gradient(
+		to left,
+		#16222a,
+		#f0f2f0
+	); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(
+		to left,
+		#16222a,
+		#f0f2f0
+	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	padding: 1vh 0;
+}
+
+.connect {
+	list-style-type: none;
+}
+
+.connect-img {
+	max-height: 15px;
+	max-width: 15px;
 }
 
 @import '~bootstrap/scss/bootstrap';

@@ -23,7 +23,6 @@ const NytBestsellers = ({ searchObj, setSearchObj, history }) => {
 			.catch(console.error);
 	}, []);
 	const handleClick = (bestseller) => {
-		console.log(bestseller);
 		setSearchObj({ ...searchObj, isbn: bestseller.primary_isbn10 });
 		history.push('/books');
 	};
@@ -43,8 +42,8 @@ const NytBestsellers = ({ searchObj, setSearchObj, history }) => {
 		);
 	}
 	return (
-		<div>
-			<Container className='authors'>
+		<div className='margin'>
+			<div className='authors'>
 				<h4>The New York Times Best Sellers</h4>
 				<h2>Best Sellers: {list.results.list_name}</h2>
 				<Carousel>
@@ -61,9 +60,9 @@ const NytBestsellers = ({ searchObj, setSearchObj, history }) => {
 						);
 					})}
 				</Carousel>
-			</Container>
+			</div>
 			<br />
-			<Container className='authors'>
+			<div className='authors'>
 				<h4>The New York Times Best Sellers</h4>
 				<h2>Best Sellers: {nfList.results.list_name}</h2>
 				<Carousel>
@@ -80,7 +79,7 @@ const NytBestsellers = ({ searchObj, setSearchObj, history }) => {
 						);
 					})}
 				</Carousel>
-			</Container>
+			</div>
 		</div>
 	);
 };

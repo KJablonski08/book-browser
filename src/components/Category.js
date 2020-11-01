@@ -8,8 +8,8 @@ const Category = ({ searchObj, setSearchObj, history }) => {
 		history.push('/books');
 	};
 	return (
-		<div>
-			<Container className='authors'>
+		<div className='margin'>
+			<div className='authors'>
 				<h2>Most Browsed Authors</h2>
 				<br />
 				<Carousel>
@@ -119,7 +119,7 @@ const Category = ({ searchObj, setSearchObj, history }) => {
 						</Button>
 					</Carousel.Item>
 				</Carousel>
-			</Container>
+			</div>
 		</div>
 	);
 };
