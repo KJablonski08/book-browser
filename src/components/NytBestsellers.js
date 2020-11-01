@@ -5,11 +5,10 @@ const NytBestsellers = () => {
 	const [list, setList] = useState(null);
 	useEffect(() => {
 		fetch(
-			`https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=${process.env.REACT_APP_NYT_KEY}`
+			`https://api.nytimes.com/svc/books/v3/lists/current/combined-print-and-e-book-fiction.json?api-key=${process.env.REACT_APP_NYT_KEY}`
 		)
 			.then((res) => res.json())
 			.then((res) => {
-				console.log(res);
 				setList(res);
 			})
 			.catch(console.error);
