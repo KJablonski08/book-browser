@@ -5,6 +5,7 @@ import Home from './components/Home';
 import BookList from './components/BookList';
 import BookDetail from './components/BookDetail';
 import NotFound from './components/NotFound';
+import Footer from './components/Footer';
 
 const App = () => {
 	let [books, setBooks] = useState(null);
@@ -70,6 +71,9 @@ const App = () => {
 					<Route component={NotFound} />
 				</Switch>
 			</main>
+			<footer>
+				<Footer />
+			</footer>
 		</div>
 	);
 };

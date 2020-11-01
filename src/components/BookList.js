@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchForm from './SearchForm';
-import { Card, CardColumns, Button } from 'react-bootstrap';
+import { Card, CardColumns, Button, Spinner } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -9,7 +9,13 @@ const BookList = ({ books, searchObj, setSearchObj }) => {
 		return (
 			<div className='book-list'>
 				<SearchForm searchObj={searchObj} setSearchObj={setSearchObj} />
-				<p>Book List not Found</p>
+				<div className='d-flex justify-content-center'>
+					<Spinner animation='border' variant='primary' />
+					<h6>Loading... Please Wait</h6>
+					<Link to={'/'}>
+						<Button>Home</Button>
+					</Link>
+				</div>
 			</div>
 		);
 	}
