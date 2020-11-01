@@ -37,6 +37,9 @@ const BookDetail = ({ match }) => {
 	return (
 		<div>
 			<br />
+			<p className='d-flex justify-content-center'>
+				Click book for text preview
+			</p>
 			<Card className='book-box card-cascade-narrower detail'>
 				{book.volumeInfo.previewLink && book.volumeInfo.imageLinks && (
 					<a

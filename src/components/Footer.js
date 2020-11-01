@@ -4,6 +4,10 @@ const Footer = () => {
 	return (
 		<div id='footer'>
 			<div className='margin'>
+				<h6>
+					Created using <a href='https://reactjs.org/'>React</a> by Katie
+					Jablonski
+				</h6>
 				<h6> Let's connect: </h6>
 				<ul className='connect'>
 					<li>
