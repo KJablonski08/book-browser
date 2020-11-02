@@ -23,7 +23,12 @@ const NytBestsellers = ({ searchObj, setSearchObj, history }) => {
 			.catch(console.error);
 	}, []);
 	const handleClick = (bestseller) => {
-		setSearchObj({ ...searchObj, isbn: bestseller.primary_isbn10 });
+		setSearchObj({
+			...searchObj,
+			title: bestseller.title,
+			author: bestseller.author,
+			isbn: bestseller.primary_isbn13,
+		});
 		history.push('/books');
 	};
 
