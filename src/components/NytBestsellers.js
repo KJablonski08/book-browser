@@ -34,14 +34,14 @@ const NytBestsellers = ({ searchObj, setSearchObj, history }) => {
 
 	if (!list) {
 		return (
-			<div className='book-list'>
+			<div className='margin'>
 				<p>Book List not Found</p>
 			</div>
 		);
 	}
 	if (!nfList) {
 		return (
-			<div className='book-list'>
+			<div className='margin'>
 				<p>Book List not Found</p>
 			</div>
 		);

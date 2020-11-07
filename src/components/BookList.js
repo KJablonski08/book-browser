@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const BookList = ({ books, searchObj, setSearchObj }) => {
 	if (books === undefined) {
 		return (
-			<div className='book-list'>
+			<div className='margin'>
 				<SearchForm searchObj={searchObj} setSearchObj={setSearchObj} />
 				<div className='d-flex justify-content-center'>
 					<h6>Please enter a search to begin or select a random book</h6>
@@ -24,7 +24,7 @@ const BookList = ({ books, searchObj, setSearchObj }) => {
 	}
 	if (!books) {
 		return (
-			<div className='book-list'>
+			<div className='margin'>
 				<SearchForm searchObj={searchObj} setSearchObj={setSearchObj} />
 				<div className='d-flex justify-content-center'>
 					<Spinner animation='border' variant='primary' />
@@ -41,7 +41,7 @@ const BookList = ({ books, searchObj, setSearchObj }) => {
 		);
 	}
 	return (
-		<div className='book-list'>
+		<div className='margin'>
 			<SearchForm searchObj={searchObj} setSearchObj={setSearchObj} />
 			<CardColumns>
 				{books.map((book, i) => {
